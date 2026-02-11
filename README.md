@@ -189,10 +189,9 @@ implementation(libs.circleimageview)
 
 ---
 
-## 👨‍💻 Contributors
+## 👨‍💻 Author
 
-- **Rayyan** - [@rayyan123571](https://github.com/rayyan123571)
-- **Danish Butt** - Original Author
+**Rayyan** - [@rayyan123571](https://github.com/rayyan123571)
 
 ---
 
