@@ -40,7 +40,7 @@ class activity_search : AppCompatActivity() {
         val backIcon: ImageView = findViewById(R.id.imageView4)
 
         backIcon.setOnClickListener {
-            onBackPressed()
+            finish()
         }
 
         allFoods = FoodRepository.getAllFoods()

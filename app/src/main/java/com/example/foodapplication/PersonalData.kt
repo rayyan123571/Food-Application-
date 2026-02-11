@@ -26,7 +26,7 @@ class PersonalData : AppCompatActivity() {
         }
 
         val backIcon: ImageView = findViewById(R.id.imageView4)
-        backIcon.setOnClickListener { onBackPressed() }
+        backIcon.setOnClickListener { finish() }
 
         val editFullName = findViewById<EditText>(R.id.editFullName)
         val editDob = findViewById<EditText>(R.id.editDob)

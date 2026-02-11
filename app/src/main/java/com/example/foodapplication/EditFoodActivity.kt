@@ -15,10 +15,18 @@ class EditFoodActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_food)
 
-        // Get food from repository using imageRes
-        val foodFromIntent = intent.getParcelableExtra<Food>("food")!!
+        // Get food from repository using imageRes with null safety
+        val foodFromIntent = intent.getParcelableExtra<Food>("food") ?: run {
+            Toast.makeText(this, "Food item not found", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
         originalFood = FoodRepository.getAllFoods()
-            .first { it.imageRes == foodFromIntent.imageRes }
+            .firstOrNull { it.imageRes == foodFromIntent.imageRes } ?: run {
+            Toast.makeText(this, "Food item not found in repository", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
 
         // Initialize UI
         findViewById<ImageView>(R.id.ivFoodPreview).setImageResource(originalFood.imageRes)

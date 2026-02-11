@@ -5,6 +5,9 @@ import android.app.Application
 class FoodApplication : Application() {
     override fun onCreate() {
         super.onCreate()
+        // Initialize managers with application context for persistence
+        CartManager.init(this)
+        FavoriteManager.init(this)
         loadInitialData()
     }
 

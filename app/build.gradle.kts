@@ -1,5 +1,3 @@
-import com.android.build.api.dsl.Packaging
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -45,7 +43,7 @@ android {
         viewBinding = true
     }
 
-    packagingOptions {
+    packaging {
         resources {
             excludes += setOf(
                 "META-INF/**",
@@ -71,14 +69,12 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-    implementation(libs.androidx.databinding.compiler)
     testImplementation(libs.junit)
-    implementation(libs.material.v1100)
+    implementation(libs.material)
     androidTestImplementation(libs.androidx.junit)
     implementation(libs.android.sdk)
     
     implementation(libs.lottie)
-    implementation(libs.androidx.material.icons.extended)
     implementation(libs.play.services.maps)
     implementation(libs.play.services.location)
     implementation(libs.gson)

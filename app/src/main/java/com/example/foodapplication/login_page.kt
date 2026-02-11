@@ -13,7 +13,9 @@ class login_page : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
-    // Hardcoded admin credentials
+    // TODO: SECURITY WARNING - Hardcoded admin credentials should be moved to Firebase
+    // with proper role-based authentication using Firebase Custom Claims.
+    // This is insecure for production use.
     private val adminCredentials = mapOf(
         "admin1@gmail.com" to "admin123",
         "admin2@gmail.com" to "admin456",

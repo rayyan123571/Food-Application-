@@ -27,7 +27,7 @@ class Settings_page : AppCompatActivity() {
     }
 
     private fun setupNavigation() {
-        findViewById<ImageView>(R.id.imageView4).setOnClickListener { onBackPressed() }
+        findViewById<ImageView>(R.id.imageView4).setOnClickListener { finish() }
     }
 
     private fun setupPolicyLinks() {

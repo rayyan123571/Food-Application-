@@ -54,6 +54,9 @@ class BillPageActivity : AppCompatActivity() {
         tvDiscount.text = "Discount: Rs.${String.format("%.2f", discount)}"
         tvTotalPayment.text = "Total Amount: Rs.${String.format("%.2f", finalAmount)}"
 
+        // Clear cart after successful order
+        CartManager.clearCart()
+
         // Back to Home
         btnBackHome.setOnClickListener {
             val intent = Intent(this, dashboard::class.java)

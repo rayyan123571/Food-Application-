@@ -35,7 +35,7 @@ class CheckoutActivity : AppCompatActivity() {
         binding.tvTotalPrice.text = "Total: Rs. $totalAmount"
 
         binding.imageView4.setOnClickListener {
-            onBackPressed()
+            finish()
         }
 
         binding.rgPaymentMethod.setOnCheckedChangeListener { _, checkedId ->
@@ -177,11 +177,13 @@ class CheckoutActivity : AppCompatActivity() {
     }
 
     private fun saveCardLocally(holder: String, number: String, expiry: String, cvv: String) {
+        // Note: CVV should NOT be stored for security/PCI-DSS compliance
+        // Only storing non-sensitive card details for user convenience
         with(sharedPreferences.edit()) {
             putString("cardHolder", holder)
-            putString("cardNumber", number)
+            putString("cardNumber", number.takeLast(4)) // Store only last 4 digits
             putString("expiry", expiry)
-            putString("cvv", cvv)
+            // CVV is intentionally not stored for security reasons
             apply()
         }
     }

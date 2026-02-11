@@ -60,7 +60,9 @@ class signup : AppCompatActivity() {
                 user.isEmpty() -> showToast("Username is required")
                 userEmail.isEmpty() -> showToast("Email is required")
                 !userEmail.contains("@") -> showToast("Invalid email address")
-                userPassword.length < 4 -> showToast("Password must be at least 4 characters")
+                userPassword.length < 8 -> showToast("Password must be at least 8 characters")
+                !userPassword.any { it.isDigit() } -> showToast("Password must contain at least one number")
+                !userPassword.any { it.isUpperCase() } -> showToast("Password must contain at least one uppercase letter")
                 !agreedToTerms -> showToast("You must agree to the terms")
                 else -> registerUser(user, userEmail, userPassword)
             }

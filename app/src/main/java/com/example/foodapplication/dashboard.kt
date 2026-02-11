@@ -138,13 +138,13 @@ class dashboard : AppCompatActivity() {
 
         allPills.forEach { pill ->
             pill.setBackgroundResource(android.R.color.transparent)
-            (pill.getChildAt(1) as TextView).setTextColor(
+            (pill.getChildAt(1) as? TextView)?.setTextColor(
                 ContextCompat.getColor(this, R.color.black)
             )
         }
 
         selected.setBackgroundResource(R.drawable.bg_onboard_card)
-        (selected.getChildAt(1) as TextView).setTextColor(
+        (selected.getChildAt(1) as? TextView)?.setTextColor(
             ContextCompat.getColor(this, android.R.color.white)
         )
     }
